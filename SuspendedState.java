@@ -1,7 +1,14 @@
 public class SuspendedState implements AccountState {
-    Account account = new  Account();
     public String getState(){
         return "Account is suspended!";
+    }
+
+    public String activateState()){
+        account.setState(new ActivateState());
+    }
+
+    public String closeState(){
+        account.setState(new ClosedState());
     }
 
 }

@@ -3,9 +3,12 @@ public class Account {
     private String accountNumber;
     private Double balance;
 
-    public Account(){
+    public Account(String accountNumber, Double balance){
+        this.accountNumber = accountNumber;
+        this.balance = balance;
         accountState = new ActivateState();
     }
+    
     public AccountState getState(){
         return accountState;
     }
