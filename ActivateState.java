@@ -23,9 +23,21 @@ public class ActivateState implements AccountState {
         accountState.withdraw(withdrawAmount, this);
     }
 
+    public AccountState getState(){
+        return accountState;
+    }
+
     public String getaccountNumber(){
         return accountNumber;
     }
 
-    
+    public Double getBalance(){
+        return balance;
+    }
+
+    public Double setBalance(Double balance){
+        this.balance = balance;
+    }
+
+
 }
