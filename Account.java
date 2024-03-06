@@ -3,33 +3,41 @@ public class Account {
     private String accountNumber;
     private Double balance;
 
-    public Account(String accountNumber, Double balance){
+    public Account(String accountNumber, Double balance) {
         this.accountNumber = accountNumber;
         this.balance = balance;
-        accountState = new ActivateState();
+        accountState = new ActiveState();
     }
-    
-    public AccountState getState(){
-        return accountState;
+    public String toString() {
+        System.out.println("Account Number: " + getaccountNumber() +
+                "\nCurrent Balance: " + getBalance());
+        return "";
     }
-
-    public void setState(AccountState accountState){
+    public void setState(AccountState accountState) {
         this.accountState = accountState;
     }
-   
-    public String getaccountNumber(){
+    public String getaccountNumber() {
         return accountNumber;
     }
-
-    public void setaccountNumber(String accountNumber){
-        this.accountNumber = accountNumber;
-    }
-
-    public Double getBalance(){
+    public Double getBalance() {
         return balance;
     }
-
-    public void setBalance(Double balance){
+    public void setBalance(Double balance) {
         this.balance = balance;
+    }
+    public void suspend() {
+        accountState.suspend(this);
+    }
+    public void activate() {
+        accountState.activate(this);
+    }
+    public void close() {
+        accountState.close(this);
+    }
+    public void deposit(Double deposit) {
+        accountState.deposit(deposit, this);
+    }
+    public void withdraw(Double withdraw) {
+        accountState.withdraw(withdraw, this);
     }
 }
